@@ -1,4 +1,24 @@
-:root {
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #a4f8b5, #3874f8);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Langar';
+  color: #390DFF;
+}
+
+#app {
+  flex: 1;
+  /* padding: 2rem; */
+}
+
+a {
+  color: A4F8B5;
+}
+
+
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -93,4 +113,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
