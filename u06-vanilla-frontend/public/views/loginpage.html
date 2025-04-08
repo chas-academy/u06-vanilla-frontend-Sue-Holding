@@ -1,71 +1,53 @@
-<main style="display: flex; justify-content: center; margin-top: 1rem; padding-bottom: 1rem;">
-    <!-- main log in box -->
-    <div style="
-      width: 60%;
-      border: 2px solid #390DFF;
-      border-radius: 2rem;
-      padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.3);
-      color: #390DFF;
-      text-align: center;
-    ">
+<main class="flex justify-center mt-4 pb-4">
+    <!-- main login box -->
+    <div class="w-3/5 border-2 border-[#390DFF] rounded-[2rem] p-8 bg-white/30 text-[#390DFF] text-center">
 
+      <!-- Login form -->
       <div>
-        <h2>Welcome back to Amazing Animals</h2>
-        <!-- form to log in -->
+        <h2 class="text-2xl font-semibold mb-4">Welcome back to Amazing Animals</h2>
         <form>
-          <label for="login-name">What's your name?</label><br>
+          <label for="login-name" class="block mb-1">What's your name?</label>
           <input
             type="text"
             id="login-name"
             name="login-name"
             placeholder="Type your name here!"
-            style="margin: 1rem 0; 
-                padding: 0.5rem; 
-                width: 70%;
-                border-radius: 2rem;
-                border-color: #390DFF;;"
+            class="my-4 p-2 w-4/5 rounded-full border border-[#390DFF]"
           >
           <br>
-          <input type="submit" value="Click here to continue learning about your favourite animals!" 
-          style="padding: 0.5rem 1rem;
-            width: 70%;
-            border-radius: 2rem;
-            border-color: #390DFF;
-            color: #A4F8B5;
-            background-color: #390DFF;">
+          <input
+            type="submit"
+            value="Click here to continue learning!"
+            class="p-2 w-4/5 rounded-full border border-[#390DFF] text-[#A4F8B5] bg-[#390DFF] cursor-pointer hover:opacity-90 transition"
+          >
         </form>
       </div>
 
-      <hr style="margin: 2rem 0;">
+        <hr class="my-8 border-[#390DFF]">
 
-        <div>
-        <h2>Are you new to Amazing Animals?</h2>
-        <h2>Great! Let's start learning!</h2>
-        <!-- form to create an account -->
+      <!-- Register form -->
+      <div>
+        <h2 class="text-2xl font-semibold">Are you new to Amazing Animals?</h2>
+        <h2 class="text-xl mb-4">Great! Let's start learning!</h2>
         <form>
-          <label for="register-name">What shall I call you?</label><br>
+          <label for="register-name" class="block mb-1">What shall I call you?</label>
           <input
             type="text"
             id="register-name"
             name="register-name"
             placeholder="Type your name here!"
-            style="margin: 1rem 0; padding: 0.5rem; 
-                width: 70%;
-                border-radius: 2rem;
-                border-color: #390DFF;"
+            class="my-4 p-2 w-4/5 rounded-full border border-[#390DFF]"
           >
           <br>
-          <input type="submit" value="Click here to create your very own account" 
-          style="padding: 0.5rem 1rem;
-            width: 70%;
-            border-radius: 2rem;
-            border-color: #390DFF;
-            color: #A4F8B5;
-            background-color: #390DFF;">
+          <input
+            type="submit"
+            value="Click here to create your very own account"
+            class="p-2 w-4/5 rounded-full border border-[#390DFF] text-[#A4F8B5] bg-[#390DFF] cursor-pointer hover:opacity-90 transition"
+          >
         </form>
       </div>
 
     </div>
   </main>
+
   

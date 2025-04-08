@@ -3,30 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../src/style.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <div id="app"></div>
 
-<main>
-  <img
-  src="./images/map_of_the_world.svg"
-  alt="world map"
-  style="max-width: 1000px; width: 100%; border-radius: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-  >
+    <main class="flex flex-col items-center">
+      <img
+        src="./images/map_of_the_world.svg"
+        alt="world map"
+        class="max-w-[1000px] w-full rounded-xl shadow-md"
+      >
 
-  <div id="feature-box" style="
-  margin: 2rem auto;
-  max.width: 600px;
-  padding: 2rem;
-  border: 1px solid black;
-  border-radius: 1rem;
-  text-align: center;
-  ">
-    <p>choose a feature above to start!</p>
-  </div>
-</main>
+      <div id="feature-box" class="mt-8 mx-auto max-w-[600px] p-8 border border-black rounded-xl text-center">
+        <p>choose a feature above to start!</p>
+      </div>
+    </main>
 
-  <script type="module" src="/main.ts"></script>
-</body>
-</html>
+    <script type="module" src="/main.ts"></script>
+  </body>
+  </html>

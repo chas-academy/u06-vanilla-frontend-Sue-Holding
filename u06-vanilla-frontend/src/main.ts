@@ -51,22 +51,22 @@ async function loadView(viewName: string) {
 
   if (featureName === 'search') {
     box.innerHTML = `
-      <h3>Search for Animals</h3>
-      <input type="text" placeholder="Type an animal name..." style="padding: 0.5rem; width: 80%;">
+      <h3 class="text-xl font-bold mb-2">Search for Animals</h3>
+      <input type="text" placeholder="Type an animal name..." class="p-2 w-4/5 rounded border border-blue-500">
     `;
   } else if (featureName === 'game') {
     box.innerHTML = `
-      <h3>Guess the Animal</h3>
-      <p>Click to start the game!</p>
-      <button onclick="alert('Game coming soon!')" style="padding: 0.5rem 1rem;">Start</button>
+      <h3 class="text-xl font-bold mb-2">Guess the Animal</h3>
+      <p class="mb-4">Click to start the game!</p>
+      <button onclick="alert('Game coming soon!')" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Start</button>
     `;
   } else if (featureName === 'favourite') {
     box.innerHTML = `
-      <h3>Your Favourite Animals</h3>
+      <h3 class="text-xl font-bold mb-2">Your Favourite Animals</h3>
       <p>Click on any animal to learn more!</p>
     `;
   } else {
-    box.innerHTML = `<p>Feature not found.</p>`;
+    box.innerHTML = `<p class="text-red-500">Feature not found.</p>`;
   }
 };
 
