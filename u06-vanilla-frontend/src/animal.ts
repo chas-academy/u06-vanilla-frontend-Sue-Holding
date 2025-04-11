@@ -1,6 +1,13 @@
 import { getAllAnimals, guessFunFact } from './api.ts';
 
-export async function searchAnimals(query: string) {
+type Animal = {
+  id: string;
+  name: string;
+  habitat: string;
+  // add more properties if needed
+};
+
+export async function searchAnimals(query: string): Promise<Animal[]> {
   try {
     const animals = await getAllAnimals();
     return animals.filter((a: any) =>

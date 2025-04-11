@@ -1,20 +1,49 @@
+const API_BASE = 'https://restful-api-animals.onrender.com/api';
+
 export async function createUser(name: string) {
-    // logic to create a user
-    console.log('Creating user:', name);
-    // simulate an API call
-    return { name };
+  const response = await fetch(`${API_BASE}/users/create`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name }),
+    credentials: 'include'
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || 'Failed to create user');
   }
+
+  const data = await response.json();
+  return data;
+}
   
   export async function loginUser(name: string) {
-    // logic to log in a user
-    console.log('Logging in user:', name);
-    // simulate an API call
-    return { name };
+    const response = await fetch(`${API_BASE}/users/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name }),
+      credentials: 'include'
+    });
+  
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Failed to login');
+    }
+  
+    const data = await response.json();
+    return data;
   }
   
   export async function logoutUser() {
-    // logic to log out a user
-    console.log('Logging out user');
-    // simulate an API call
-  }
+    const response = await fetch(`${API_BASE}/users/logout`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
+    });
   
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Failed to logout');
+    }
+    return await response.json();
+  }

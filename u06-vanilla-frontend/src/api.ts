@@ -6,9 +6,10 @@ const API_BASE = 'https://restful-api-animals.onrender.com/api';
 export async function getAllAnimals() {
     const res = await fetch(`${API_BASE}/animals/getall`, {
       method: 'GET',
-    //   mode: 'cors',
+      mode: 'cors',
       headers: { 
         'Content-Type': 'application/json', 
+      credentials: 'include'
         },
     });
     if (!res.ok) {
@@ -25,6 +26,7 @@ export async function getAnimalById() {
       method: 'GET',
       headers: { 
         'Content-Type': 'application/json', 
+      credentials: 'include'
         },
     });
     if (!res.ok) {
@@ -41,6 +43,7 @@ export async function updateAnimalById() {
       method: 'PUT',
       headers: { 
         'Content-Type': 'application/json', 
+      credentials: 'include'
         },
     });
     if (!res.ok) {
@@ -54,9 +57,10 @@ export async function updateAnimalById() {
      // delete animal by ID
 export async function deleteAnimalById() {
     const res = await fetch(`${API_BASE}/animals/delete/id`, {
-      method: 'DEL',
+      method: 'DELETE',
       headers: { 
         'Content-Type': 'application/json', 
+      credentials: 'include'
         },
     });
     if (!res.ok) {
@@ -72,8 +76,9 @@ export async function deleteAnimalById() {
 export async function guessFunFact() {
     const res = await fetch(`${API_BASE}/animals/game/guess-funfact`, {
         method: 'GET',
-          headers: { 
-            'Content-Type': 'application/json', 
+        headers: { 
+        'Content-Type': 'application/json', 
+        credentials: 'include'
             },
     });
 
@@ -87,10 +92,11 @@ export async function guessFunFact() {
 
 // check games answer
 export async function checkFunFact() {
-    const res = await fetch(`${API_BASE}/animals/game/check.guess`, {
+    const res = await fetch(`${API_BASE}/animals/game/check-guess`, {
         method: 'POST',
           headers: { 
             'Content-Type': 'application/json', 
+        credentials: 'include'
             },
     });
 
@@ -99,51 +105,5 @@ export async function checkFunFact() {
         console.error("response not ok:", res.status, errorBody);
         throw new Error('Failed to check answer..');
     }
-    return await res.json();
-}
-
-
-// create user function
-export async function createUser(name: string) {
-    const res = await fetch(`${API_BASE}/users/create`, {
-      method: 'POST',
-      mode: 'cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name })
-    });
-    return await res.json();
-  }
-
-  // login user function
-  export async function loginUser(name: string) {
-    const res = await fetch(`${API_BASE}/users/login`, {
-      method: 'POST',
-      mode: 'cors',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ name })
-    });
-    if (!res.ok) {
-        const message = await res.text();
-        throw new Error(message || 'Login failed');
-    }
-    return await res.json();
-  }
-
-// logout user function
-export async function logoutUser() {
-    const res = await fetch(`${API_BASE}/users/logout`, {
-        method: 'POST',
-        credentials: 'include',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json',
-    },
-});
-
-if (!res.ok) {
-    const message = await res.text();
-    throw new Error(message || 'Logout failed');
-}
     return await res.json();
 }
