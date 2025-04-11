@@ -1,4 +1,4 @@
-import { getAllAnimals, guessFunFact } from './api.ts';
+const API_BASE = 'https://restful-api-animals.onrender.com/api';
 
 type Animal = {
   id: string;
@@ -19,12 +19,71 @@ export async function searchAnimals(query: string): Promise<Animal[]> {
   }
 }
 
-export async function startGame() {
-  try {
-    const game = await guessFunFact();
-    alert(game.funFact);
-  } catch (error) {
-    console.error("Error starting game:", error);
-    alert("An error occurred while starting the game.");
+// Get all animal data
+export async function getAllAnimals() {
+    const res = await fetch(`${API_BASE}/animals/getall`, {
+      method: 'GET',
+      mode: 'cors',
+      headers: { 
+        'Content-Type': 'application/json', 
+      // credentials: 'include'
+        },
+    });
+    if (!res.ok) {
+        const errorBody = await res.text();
+        console.error("response not ok:", res.status, errorBody);
+        throw new Error('Failed to get animals');
+    }
+    return await res.json();
   }
-}
+
+  // Get animal by ID
+export async function getAnimalById() {
+    const res = await fetch(`${API_BASE}/animals/get/id`, {
+      method: 'GET',
+      headers: { 
+        'Content-Type': 'application/json', 
+      // credentials: 'include'
+        },
+    });
+    if (!res.ok) {
+        const errorBody = await res.text();
+        console.error("response not ok:", res.status, errorBody);
+        throw new Error('Failed to get animal');
+    }
+    return await res.json();
+  }
+
+   // update animal by ID
+export async function updateAnimalById() {
+    const res = await fetch(`${API_BASE}/animals/update/id`, {
+      method: 'PUT',
+      headers: { 
+        'Content-Type': 'application/json', 
+      // credentials: 'include'
+        },
+    });
+    if (!res.ok) {
+        const errorBody = await res.text();
+        console.error("response not ok:", res.status, errorBody);
+        throw new Error('Failed to update animal');
+    }
+    return await res.json();
+  } 
+
+     // delete animal by ID
+export async function deleteAnimalById() {
+    const res = await fetch(`${API_BASE}/animals/delete/id`, {
+      method: 'DELETE',
+      headers: { 
+        'Content-Type': 'application/json', 
+      // credentials: 'include'
+        },
+    });
+    if (!res.ok) {
+        const errorBody = await res.text();
+        console.error("response not ok:", res.status, errorBody);
+        throw new Error('Failed to delete animal');
+    }
+    return await res.json();
+  } 

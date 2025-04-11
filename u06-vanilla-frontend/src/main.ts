@@ -1,88 +1,11 @@
 import './style.css'
-import { createUser, loginUser, logoutUser } from './user';
-import { searchAnimals, startGame } from './animal';
+// import { createUser, loginUser, logoutUser } from './user';
+import { searchAnimals, getAllAnimals, getAnimalById, updateAnimalById, deleteAnimalById   } from './animal';
+import { startGame, guessFunFact, checkFunFact } from './game';
 import { loadView } from './viewLoader';
 
 // Load the loginpage first
-loadView('loginpage');
-
-// Login user 
-document.addEventListener('submit', async (e) => {
-    const form = e.target as HTMLFormElement;
-
-    e.preventDefault();
-
-    const nameInput = document.getElementById('login-name') as HTMLInputElement;
-    const name = nameInput.value.trim();
-
-    if (!name) {
-      alert('Please enter your name!');
-      return;
-    }
-
-    try {
-        if (form.id === 'login-form') {
-          await loginUser(name);
-          console.log('Welcome back:', name);
-          loadView('home');
-        } else if (form.id === 'createUser-form') {
-          await createUser(name);
-          console.log('User created:', name);
-          loadView('home');
-        }
-      } catch (err: any) {
-        alert(err.message);
-      }
-    });
-
-// Handle logout
-// export async function loadView(viewName: string) {
-//     const view = await fetch(`views/${viewName}.html`);
-//     const html = await view.text();
-
-//     const app = document.getElementById('app');
-//     if (!app) return;
-
-//     app.innerHTML = html;
-  
-//     // Re-bind logout listener if home view is loaded
-//     if (viewName === 'home') {
-//       const logoutLink = document.querySelector('#logout-link');
-//       if (logoutLink) {
-//         logoutLink.addEventListener('click', async (e) => {
-//           e.preventDefault();
-//           try {
-//             await logoutUser();
-//             console.log('User logged out successfully');
-//             loadView('loginpage');
-//           } catch (err: any) {
-//             alert('Failed to log out: ' + err.message);
-//             console.error(err);
-//           }
-//         });
-//       }
-//     }
-//   }
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-// const logoutLink = document.querySelector('#logout-link');
-
-// if (logoutLink) {
-//   logoutLink.addEventListener('click', async (e) => {
-//     e.preventDefault();
-//     try {
-//       await logoutUser();
-//       console.log('User logged out successfully');
-//       console.log('Logoutlink:', logoutLink);
-//       loadView('loginpage');
-//     } catch (err: any) {
-//       alert('Failed to log out: ' + err.message);
-//       console.error(err);
-//     }
-//   });
-// }
-// });
+loadView('home');
 
 //switch case for nav choices - search - game - favorite
 // Event listener for feature box interactions
@@ -144,6 +67,86 @@ document.addEventListener('submit', async (e) => {
         break;
     }
   };
+
+// Login user 
+// document.addEventListener('submit', async (e) => {
+//     const form = e.target as HTMLFormElement;
+
+//     e.preventDefault();
+
+//     const nameInput = document.getElementById('login-name') as HTMLInputElement;
+//     const name = nameInput.value.trim();
+
+//     if (!name) {
+//       alert('Please enter your name!');
+//       return;
+//     }
+
+//     try {
+//         if (form.id === 'login-form') {
+//           await loginUser(name);
+//           console.log('Welcome back:', name);
+//           loadView('home');
+//         } else if (form.id === 'createUser-form') {
+//           await createUser(name);
+//           console.log('User created:', name);
+//           loadView('home');
+//         }
+//       } catch (err: any) {
+//         alert(err.message);
+//       }
+//     });
+
+// Handle logout
+// export async function loadView(viewName: string) {
+//     const view = await fetch(`views/${viewName}.html`);
+//     const html = await view.text();
+
+//     const app = document.getElementById('app');
+//     if (!app) return;
+
+//     app.innerHTML = html;
+  
+//     // Re-bind logout listener if home view is loaded
+//     if (viewName === 'home') {
+//       const logoutLink = document.querySelector('#logout-link');
+//       if (logoutLink) {
+//         logoutLink.addEventListener('click', async (e) => {
+//           e.preventDefault();
+//           try {
+//             await logoutUser();
+//             console.log('User logged out successfully');
+//             loadView('loginpage');
+//           } catch (err: any) {
+//             alert('Failed to log out: ' + err.message);
+//             console.error(err);
+//           }
+//         });
+//       }
+//     }
+//   }
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+// const logoutLink = document.querySelector('#logout-link');
+
+// if (logoutLink) {
+//   logoutLink.addEventListener('click', async (e) => {
+//     e.preventDefault();
+//     try {
+//       await logoutUser();
+//       console.log('User logged out successfully');
+//       console.log('Logoutlink:', logoutLink);
+//       loadView('loginpage');
+//     } catch (err: any) {
+//       alert('Failed to log out: ' + err.message);
+//       console.error(err);
+//     }
+//   });
+// }
+// });
+
+
 
 
 
