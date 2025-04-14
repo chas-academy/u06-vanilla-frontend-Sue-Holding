@@ -4,14 +4,27 @@ type Animal = {
   id: string;
   name: string;
   habitat: string;
-  // add more properties if needed
+  location: string;
 };
 
 export async function searchAnimals(query: string): Promise<Animal[]> {
   try {
     const animals = await getAllAnimals();
-    return animals.filter((a: any) =>
+    return animals.filter((a: Animal) =>
       a.name.toLowerCase().includes(query.toLowerCase())
+    );
+  } catch (err: any) {
+    console.error("Error fetching animals:", err.message);
+    throw err;
+  }
+}
+
+// search animals by location
+export async function searchAnimalsByLocation(location: string): Promise<Animal[]> {
+  try {
+    const animals = await getAllAnimals();
+    return animals.filter((a: Animal) =>
+      a.location.toLowerCase().includes(location.toLowerCase())
     );
   } catch (err: any) {
     console.error("Error fetching animals:", err.message);
@@ -37,9 +50,15 @@ export async function getAllAnimals() {
     return await res.json();
   }
 
+  // find animal by name
+  export async function findAnimalByName(name: string): Promise<Animal | undefined> {
+    const animals = await getAllAnimals();
+    return animals.find(a => a.name.toLowerCase() === name.toLowerCase());
+  }
+ 
   // Get animal by ID
-export async function getAnimalById() {
-    const res = await fetch(`${API_BASE}/animals/get/id`, {
+export async function getAnimalById(id: string) {
+    const res = await fetch(`${API_BASE}/animals/get/${id}`, {
       method: 'GET',
       headers: { 
         'Content-Type': 'application/json', 
@@ -54,14 +73,17 @@ export async function getAnimalById() {
     return await res.json();
   }
 
+// show all animal details
+
+
    // update animal by ID
-export async function updateAnimalById() {
-    const res = await fetch(`${API_BASE}/animals/update/id`, {
+export async function updateAnimalById(id: string, data: Partial<Animal>) {
+    const res = await fetch(`${API_BASE}/animals/update/${id}`, {
       method: 'PUT',
       headers: { 
-        'Content-Type': 'application/json', 
+        'Content-Type': 'application/json' },
       // credentials: 'include'
-        },
+      body: JSON.stringify(data)
     });
     if (!res.ok) {
         const errorBody = await res.text();
@@ -72,8 +94,8 @@ export async function updateAnimalById() {
   } 
 
      // delete animal by ID
-export async function deleteAnimalById() {
-    const res = await fetch(`${API_BASE}/animals/delete/id`, {
+export async function deleteAnimalById(id: string) {
+    const res = await fetch(`${API_BASE}/animals/delete/${id}`, {
       method: 'DELETE',
       headers: { 
         'Content-Type': 'application/json', 
