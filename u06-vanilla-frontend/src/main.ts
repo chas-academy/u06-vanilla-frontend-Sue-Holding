@@ -1,7 +1,7 @@
 import './style.css'
 // import { createUser, loginUser, logoutUser } from './user';
-import { searchAnimals, getAllAnimals, getAnimalById, updateAnimalById, deleteAnimalById, searchAnimalsByLocation   } from './animal';
-import { startGame, guessFunFact, checkFunFact } from './game';
+// import { searchAnimals, getAllAnimals, getAnimalById, updateAnimalById, deleteAnimalById, searchAnimalsByLocation   } from './animal';
+import { startGame } from './game';
 import { loadView } from './viewLoader';
 import { renderSearchTemplate } from './featureBox';
 import { setupSearchFeature } from './eventListeners';
@@ -25,7 +25,7 @@ loadView('home');
       box.innerHTML = `
         <h3 class="text-xl font-bold mb-2">Guess the Animal</h3>
         <p class="mb-4">Click to start the game!</p>
-        <button type="submit" id="play-game" class="mt-2 p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Play Game</button>
+        <button type="submit" id="play-game" class="mt-2 p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition cursor-pointer">Play Game</button>
       `;
       const playGameBtn = document.getElementById('play-game');
       playGameBtn?.addEventListener('click', async () => {
