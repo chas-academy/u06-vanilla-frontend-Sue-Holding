@@ -6,7 +6,7 @@ import { loadView } from './viewLoader';
 import { renderSearchTemplate } from './featureBox';
 import { setupSearchFeature } from './eventListeners';
 
-// Load the loginpage first
+// Load the homepage first
 loadView('home');
 
 //switch case for nav choices - search - game - favorite

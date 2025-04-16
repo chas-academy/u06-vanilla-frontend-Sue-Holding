@@ -1,4 +1,4 @@
-const API_BASE = 'https://restful-api-animals.onrender.com/api';
+// const API_BASE = 'https://restful-api-animals.onrender.com/api';
 
 // export async function createUser(name: string) {
 //   const response = await fetch(`${API_BASE}/users/create`, {
