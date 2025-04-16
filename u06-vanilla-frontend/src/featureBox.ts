@@ -1,3 +1,5 @@
+import './style.css';
+
 export function renderSearchTemplate(): string {
   return `
     <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-2">Search for Animals</h3>

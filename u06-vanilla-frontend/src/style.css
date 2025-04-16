@@ -1,4 +1,12 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* @import "tailwindcss/preflight";
+@import "tailwindcss/utilities"; */
+
 @import "tailwindcss";
+
 
 body {
   margin: 0;
@@ -16,5 +24,5 @@ body {
 } 
 
 a {
-  color: A4F8B5;
+  color: #A4F8B5;
 } 

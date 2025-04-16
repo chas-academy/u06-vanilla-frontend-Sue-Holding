@@ -19,7 +19,7 @@ async function loadComponent(path: string): Promise<string> {
     (document.getElementById('footer-slot') as HTMLElement).innerHTML = footer;
     (document.getElementById('page-content') as HTMLElement).innerHTML = view;
   }
-    // 🔁 Add logout logic after DOM has updated
+    //  Add logout logic after DOM has updated
 //   const logoutLink = document.querySelector('#logout-link');
 //   if (logoutLink) {
 //     logoutLink.addEventListener('click', async (e) => {

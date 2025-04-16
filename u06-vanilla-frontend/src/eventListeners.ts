@@ -1,5 +1,6 @@
 import { addAnimal, getAllAnimals, searchAnimals, searchAnimalsByLocation, updateAnimalById, deleteAnimalById } from './animal';
 import { Animal } from './animal';
+import './style.css';
 
 // add animal
 export function setupAddAnimalFeature() {

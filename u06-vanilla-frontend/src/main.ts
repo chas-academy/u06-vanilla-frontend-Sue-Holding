@@ -1,13 +1,43 @@
-import './style.css'
 // import { createUser, loginUser, logoutUser } from './user';
 // import { searchAnimals, getAllAnimals, getAnimalById, updateAnimalById, deleteAnimalById, searchAnimalsByLocation   } from './animal';
+import './style.css';
 import { startGame } from './game';
 import { loadView } from './viewLoader';
 import { renderSearchTemplate } from './featureBox';
 import { setupSearchFeature } from './eventListeners';
 
-// Load the homepage first
+// Load the layout first, then the homepage content
+async function initializeApp() {
+    await loadLayout();
 loadView('home');
+
+  const pageContent = document.getElementById("page-content");
+    if (pageContent) {
+      pageContent.innerHTML = `
+        <p>Welcome!!</p>
+        <img 
+          src="/images/map_of_the_world.svg" 
+          alt="World map"
+          class="max-w-[1000px] w-full rounded-xl shadow-md" 
+        />
+        <div id="feature-box" class="mt-8 mx-auto max-w-[600px] p-8 border border-black rounded-xl text-center">
+          <p>Choose a feature above to start!</p>
+        </div>
+      `;
+    }
+}
+
+// Load layout.html dynamically into #app
+async function loadLayout() {
+    const response = await fetch("/components/layout.html");
+    const layoutHTML = await response.text();
+    const app = document.getElementById("app");
+    if (app) {
+      app.innerHTML = layoutHTML;
+    }
+  }
+
+  initializeApp();
 
 //switch case for nav choices - search - game - favorite
 // Event listener for feature box interactions

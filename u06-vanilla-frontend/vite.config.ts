@@ -7,12 +7,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [
-    tailwindcss(),
+    tailwindcss()
   ],
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'public/views/home.html'),
+        main: resolve(__dirname, 'index.html'),
       },
     },
   },
