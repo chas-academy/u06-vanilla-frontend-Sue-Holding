@@ -1,6 +1,10 @@
 # 🐾 Animal Explorer API & Frontend
 
-An interactive learning project for toddlers that allows users to explore animals by location, learn fun facts, and manage animal data through a friendly frontend and a RESTful backend built with Node.js, Express, MongoDB, and TypeScript.
+An interactive learning project for toddlers that allows users to explore animals by location, learn fun facts, and manage animal data through a friendly frontend and a RESTful backend built with Node.js, Express, MongoDB, and TypeScript. 
+
+You can also see my design and prototype on Figma here:
+
+👉 'https://www.figma.com/design/JwOTQjtUJoAqz4dpgQNlK4/U06-API?node-id=0-1&p=f&t=zzlIFGGFCeYnq2AH-0'
 
 ## 📚 Features
 
